@@ -30,3 +30,8 @@
   - Ouput: Regressed energy assuming all energy deposits originate from a single particle
   - IMPORTANT: This is not trained on individual tracksters (Work in progress) and since it is by design not linear in the 
     energy input it will give different (i.e. worse) results if a particle is split into multiple tracksters. 
+
+- `energy_regression_tracksters.pb`: Tensorflow model trained on tracksters
+  - Big difference: This model is trained to predict the energy correctly on trackster level, not on event level
+  - For inference there is no fundamental change
+  - The expected input variable are now `$f_0, ..., f9, \eta, E_{raw}, p_0, ..., p1$` where `$f_i = E_i / E_{raw}` and `$p_i$` are the ID probabilities
